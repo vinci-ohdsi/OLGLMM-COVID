@@ -114,8 +114,6 @@ After running the code you will see a file called `data.csv` in the directories 
 
 - run the following code to create the json summary for each wave.  After running the code you will see a new file in `outputFolder/first`, `outputFolder/second` and `outputFolder/third` folders called `<siteId>_initialize.json`.
 
-- You now need to inspect the `<siteId>_initialize.json` and if happy log into https://pda-ota.pdamethods.org/  and upload the file to the correct study (first/second/third).
-
 ```r
 library(dGEMcovid)
 # USER INPUTS
@@ -181,5 +179,6 @@ execute(
   verbosity = "INFO"
         )
 ```
-
+## Step 4 - Submit Results
+- You now need to inspect the `<siteId>_initialize.json` and if happy log into https://pda-ota.pdamethods.org/  and upload the file to the correct study (first/second/third).
 - Your part is now done.  Sit back and wait for the study lead to send you the results.
