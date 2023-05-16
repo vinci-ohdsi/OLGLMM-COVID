@@ -1,60 +1,40 @@
-StudyRepoTemplate
-=================
+olglmmCovid <add more>
+=============
 
-An OHDSI study repository is expected to have a README.md file where the header conforms to a standard. A template README file is provided here:
+<img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started">
 
-**[README file template](templateREADME.md)**
+- Analytics use case(s): **Patient-Level Prediction**
+- Study type: **Clinical Application**
+- Tags: **COVID-19**
+- Study lead: **Jiayi Tong**, **Yong Chen**, **Jenna Reps**
+- Study lead forums tag: **[add_username](https://forums.ohdsi.org/u/add_username)**
+- Study start date: **June 2023**
+- Study end date: **month year**
+- Protocol: **[Here](https://github.com/ohdsi-studies/OLGLMM-COVID/blob/master/extras/protocol.docx)**
+- Publications: **-**
+- Results explorer: **-**
 
-When initiating a repository, please copy this file, rename it to 'README.md', and fill in the fields as appropriate.
+This study implements a lossless one-shot distributed method, OLGLMM, that can efficiently combine heterogeneous data while preserving the privacy of protected patient-level and hospital-level health information and calculate effect estimates that are equivalent to pooling the data (highly accurate).  We would like to implement the OLGLMM method across the OHDSI network for the hospital profiling problem (see Figure 1) to i) demonstrate the applicability of the proposed OLGLMM method and ii) investigate the effect estimates of patient- and hospital-level factors of COVID-19 mortality. 
 
-The information in the repository README file will be used to automatically update the [list of OHDSI research studies](https://data.ohdsi.org/OhdsiStudies/), so it is important to fill in the template accurately, and keep it up-to-date.
+## Background
+Hospital profiling, which evaluates how much patient outcomes are influenced by the hospital, allows for a quantitative comparison of healthcare providers' quality of care for certain clinical outcomes (e.g., mortality rate). Given the novelty of COVID-19, the study of hospital profiling with COVID-19 specific data is of great interest. The OHDSI network contains a large number of datasets with COVID-19 data and when combined the COVID-19 data are rather large. However, due to privacy issues, it is not possible to pool the datasets during multi-site collaboration. For example, sensitive individual patient data (IPD) including the patient's identity, diagnoses, and treatments are usually not allowed under privacy regulation to be shared across networks. Additionally, for hospital profiling, hospital-level encryption is also needed to keep the hospital health information safe.  
 
-## Elements in the README template
+In this study we propose implementing a novel one-shot decentralized algorithm for generalized linear mixed effects models (dGEM). To the best of our knowledge, dGEM is the first real-world hospital profiling solution to account for heterogeneity in multi-site data in a one-shot distributed manner. The proposed algorithm (i.e., dGEM) is based on the generalized linear mixed effect models (GLMM). The dGEM method assumes common fixed-effects of the factors (i.e., patient- and hospital-level factors) and hospital-specific random effects (i.e., random slopes and intercepts) to calculate the directly standardized COVID-19 mortality rates1 for hospital profiling. The proposed method achieves both patient-level privacy protection by only requiring aggregated data; additionally, the hospital-level encryption is accomplished since each hospital can only access their own standardized mortality rate, and the ranking of the hospitals is conducted anonymously using dGEM algorithm.
 
-| Element | Description |
-| ------- | ----------- |
-| [Study title]      | A meaningful title of the research project.            
-| Study status badge | A badge indicating the study status. See [below](#study-status) for valid options. |
-| Analytics use case | One or more analytics use cases included in the study (in a comma-separated list). See [below](#analytics-use-cases) for valid options. |
-| Study type | The type of study. See [below](#study-types) for valid options. |
-| Tags | Zero, one, or more additional keywords that can be used to filter the list of studies. The list of tags is not restricted, but be conservative in making up new tags. For example: `EHDEN` to identify studies that are part of the [EHDEN project](https://www.ehden.eu/). |
-| Study lead | The name of the study lead.|
-| Study lead forums tag | The OHDSI forums tag of the study lead, which can be used to contact the lead. It is recommended to make this a hyperlink to lead's forums profile |
-| Study start date | When did work on the study commence? This date typically indicates when development of the protocol was initiated. Format: [Month] [Day], [Year] (e.g. May 1, 2019)|
-| Study end date | When was the study completed? This typically indicates when the analyses were completed and the results have been collected. Do not enter future (planned) dates here. Format: [Month] [Day], [Year] (e.g. May 1, 2019)| 
-| Protocol | A hyperlink to the protocol. The protocol is expected to be a document in the study repository itself. | 
-| Publications | Zero, one or more hyperlinks to papers produced as part of the study (comma-separated). | 
-| Results explorer | A hyperlink to a web app (e.g. a Shiny app) where the results of the study can be explored. |
+The aim of this study is to test the performance of the OLGLMM method for distributed network analyses of hospital profiling on the COVID-19 mortality rate within the OHDSI network. We will implement the dGEM methodology across the COVID-19 datasets within the OHDSI network for the use case of hospital profiling of COVID-19 mortality. This will demonstrate feasibility and enable us to estimate the effect of various factors of COVID-19 mortality.  However, the hospital rankings will be presented anonymously (working ID 1, working ID 2, …) and will not show the names of the OHDSI collaborators’ datasets.
 
-### Study Status
 
-Choose one of the following options:
+Suggested Requirements
+===================
+- R studio (https://rstudio.com)
+- Java runtime environment
 
-| Badge             | Description                          |
-| ----------------- | ------------------------------------ |
-| <img src="https://img.shields.io/badge/Study%20Status-Repo%20Created-lightgray.svg" alt="Study Status: Repo Created"> | The study repository has just been created. Work has not yet commenced. | 
-| <img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started"> | A first commit was made (to something else than the README file). Work has commenced. |
-| <img src="https://img.shields.io/badge/Study%20Status-Design%20Finalized-brightgreen.svg" alt="Study Status: Design Finalized"> | The protocol and study code have been finalized. | 
-| <img src="https://img.shields.io/badge/Study%20Status-Results%20Available-yellow.svg" alt="Study Status: Results Available"> | The study results are publicly available, for example in a paper or results explorer app. | 
-| <img src="https://img.shields.io/badge/Study%20Status-Complete-orange.svg" alt="Study Status: Complete"> | The study is complete, no further dissemination planned. | 
-| <img src="https://img.shields.io/badge/Study%20Status-Suspended-red.svg" alt="Study Status: Suspended"> | The study has been suspended, and may or may not be continued at a later point in time. | 
+Instructions to Install and Execute from GitHub
+========================================================
 
-Copy the relevant markdown code from [this page](badgesMarkdownCode.md), and paste it in your README file, just below the study title.
+- [Instructions to install the study library from GitHub using Renv](STUDY-PACKAGE-SETUP.md)
+- [Instructions to execute the study ](STUDY-PACKAGE-EXECUTE.md)
 
-### Analytics Use Cases
-
-Choose one or more options from: 
-
-- `Characterization`
-- `Population-Level Estimation`, or
-- `Patient-Level Prediction` 
-
-See [the Data Analytics Use Cases chapter](https://ohdsi.github.io/TheBookOfOhdsi/DataAnalyticsUseCases.html) for more details.
-
-### Study types
-
-Can be either:
-
-- `Methods Research` if the study explores a methodological question, for example an evaluation of various propensity score approaches. 
-- `Clinical Application` if the study aims to answer a clinically relevant question, for example 'Does drug A cause outcome B?'.
-
+Results
+========================================================
+Once executed you will find multiple json/csv files in the specified outputFolder.
