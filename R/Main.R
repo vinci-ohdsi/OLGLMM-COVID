@@ -152,6 +152,14 @@ execute <- function(
   
   if(createPlot){
     ParallelLogger::logInfo('Generating date plot')
+    
+    databaseDetails$cohortId <- analysisList$studySettings$targetId
+    databaseDetails$targetId <- analysisList$studySettings$targetId
+    databaseDetails$outcomeIds <- analysisList$studySettings$outcomeId
+    databaseDetails$cohortTable <- cohortTable
+    databaseDetails$outcomeDatabaseSchema <- databaseDetails$cohortDatabaseSchema
+    databaseDetails$outcomeTable <- cohortTable
+    
     generateDatePlot(
       databaseDetails = databaseDetails,
       outputFolder = outputFolder
