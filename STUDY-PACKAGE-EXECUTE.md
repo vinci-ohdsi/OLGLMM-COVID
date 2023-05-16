@@ -16,12 +16,13 @@ Instructions To Run Study
 - Please place the first wave control.json file into the `outputFolder/first`, the second wave control.json file into the `outputFolder/second` folder and the thrid wave control.json file into the `outputFolder/third` folder.
 
 ## Step 1 - Determine wave dates for your database
+- make sure you are in the project folder you specified when initializing the renv lock file as this project contains all the R dependencies and will contain the olglmmCovid library.
 - run the following code to create the study cohorts and create a plot with the number of hospitalization on the y-axis and the date on the x-axis.  This will be used to determine the start/end of the first/second/third waves.
 
 You need to specify the database details for the OMOP CDM database you are analyzing, `siteId` the unique reference for your site and `outputFolder` the directory to saved the plot to (this should be the same place as Step 1b).  After running the code you will see a new file in `outputFolder` called `countPerDate.pdf`.
 
 ```r
-library(dGEMcovid)
+library(olglmmCovid)
 # USER INPUTS
 #=======================
 
@@ -115,7 +116,7 @@ After running the code you will see a file called `data.csv` in the directories 
 - run the following code to create the json summary for each wave.  After running the code you will see a new file in `outputFolder/first`, `outputFolder/second` and `outputFolder/third` folders called `<siteId>_initialize.json`.
 
 ```r
-library(dGEMcovid)
+library(olglmmCovid)
 # USER INPUTS
 #=======================
 
