@@ -241,7 +241,7 @@ execute <- function(
       ipMat <- as.matrix(dataObject$dataMatrix)
       ipdata <- as.data.frame(ipMat)
       colnames(ipdata) <-  makeFriendlyNames(cnames)
-      ipdata$outcome <- dataObject$labels$outcomeCount
+      ipdata$status <- dataObject$labels$outcomeCount
       
       #TODO - EDIT THIS FOR NEW SETTINGS 0-4, 5+ ?
       # modify the covariates
