@@ -167,6 +167,7 @@ summarise <- dplyr::summarise
 group_by_at <- dplyr::group_by_at
 n <- dplyr::n
 left_join <- dplyr::left_join
+row.match <- prodlim::row.match
 
 execute(
   databaseDetails = databaseDetails,
