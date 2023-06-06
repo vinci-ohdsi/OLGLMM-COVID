@@ -1,0 +1,12 @@
+ADAP_data               ADAP simulated data
+LOS                     Length of Stay data
+ODACAT_ordinal          ODACAT simulated data
+covid                   COVID-19 LOS and mortality data
+cs                      CrabSatellites data
+getCloudConfig          gather cloud settings into a list
+lung2                   Lung cancer survival time data
+pda                     PDA: Privacy-preserving Distributed Algorithm
+pdaGet                  Function to download json and return as object
+pdaList                 Function to list available objects
+pdaPut                  Function to upload object to cloud as json
+pdaSync                 pda control synchronize

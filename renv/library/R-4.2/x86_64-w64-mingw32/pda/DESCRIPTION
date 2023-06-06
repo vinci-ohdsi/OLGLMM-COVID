@@ -1,0 +1,31 @@
+Package: pda
+Type: Package
+Title: Privacy-Preserving Distributed Algorithms
+Version: 1.2-5
+Date: 2022-01-30
+Authors@R: c(person("Chongliang", "Luo", role=c("aut","cre"), email ="luocl3009@gmail.com"), person("Rui", "Duan", role="aut"), person("Mackenzie", "Edmondson", role="aut"), person("Jiayi", "Tong", role="aut"), person("Xiaokang", "Liu", role="aut"), person("Kenneth", "Locke", role="aut"), person("Yong", "Chen", role="aut", email ="ychen123@upenn.edu"), person("Penn Computing Inference Learning (PennCIL) lab", role = c("cph")))
+Description: A collection of privacy-preserving distributed algorithms for conducting multi-site data analyses. The regression analyses can be linear regression for continuous outcome, logistic regression for binary outcome, Cox proportional hazard regression for time-to event outcome, Poisson regression for count outcome, or multi-CATegorical regression for nominal or ordinal outcome. The PDA algorithm runs on a lead site and only requires summary statistics from collaborating sites, with one or few iterations. The package can be used together with the OTA online system (<https://pda-ota.pdamethods.org/>) for safe and convenient collaboration. For more information, please visit our software websites: <https://github.com/Penncil/pda>, and <https://pdamethods.org/>.
+Maintainer: Chongliang Luo <luocl3009@gmail.com>
+License: Apache License 2.0
+Suggests: imager, lme4
+Depends: R (>= 3.5.0)
+Imports: Rcpp (>= 0.12.19), stats, httr, rvest, jsonlite, data.table, survival,
+    minqa, glmnet, MASS, numDeriv, metafor
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 7.1.2
+Encoding: UTF-8
+LazyData: true
+Author: Chongliang Luo [aut, cre], Rui Duan [aut], Mackenzie Edmondson [aut], Jiayi Tong [aut], Xiaokang Liu [aut], Kenneth Locke [aut], Yong Chen [aut], Penn Computing Inference Learning (PennCIL) lab [cph]
+Built: R 4.2.3; x86_64-w64-mingw32; 2023-06-06 21:12:12 UTC; windows
+Archs: x64
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: pda
+RemoteUsername: penncil
+RemoteRef: HEAD
+RemoteSha: a3ccaa1c3a888f5c6825b55ba654514b8442a2d7
+GithubHost: api.github.com
+GithubRepo: pda
+GithubUsername: penncil
+GithubRef: HEAD
+GithubSHA1: a3ccaa1c3a888f5c6825b55ba654514b8442a2d7
